@@ -1,0 +1,15 @@
+name: GoreaRestrict
+author: GoreaCraft
+main: com.goreacraft.plugins.itemrestrict.Main
+version: 2.6
+
+website: http://www.goreacraft.com
+description: Restrict items by coordinates!
+commands:
+  gorearestrict:
+    aliases: [gr, grestrict]
+    description: Advanced item restriction plugin
+    default: false
+    usage: More info on '/gr help'
+  banneditems:
+    description: Shows a list of restricted items
