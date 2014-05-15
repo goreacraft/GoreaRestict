@@ -196,20 +196,20 @@ public class Main extends JavaPlugin implements Listener{
 						}					
 						
 					
-						if(player.getItemInHand() != null)
+						if(player.getItemInHand() != null && player.getItemInHand().getTypeId()!=0)
 						{
 							//player.sendMessage(" " + player.getItemInHand().getTypeId());
-							String material = "" + player.getItemInHand().getType();
+							String itemid = "" + player.getItemInHand().getTypeId();
 							 String meta = "" + player.getItemInHand().getDurability();
-							 String item = (material+":" + meta);
+							 String item = (itemid+":" + meta);
 							 
 							 
-								Data.createSection("Items."+ material + ":" + meta);
+								Data.createSection("Items."+ itemid + ":" + meta);
 								player.sendMessage("Item [" + ChatColor.RED + item +ChatColor.RESET + "] has been banned in all dimensions.");
 								//itemuse = Data.getConfigurationSection("Items").getKeys(false);
 								savetofile();
 								return true;
-						} else {player.sendMessage(ChatColor.RED+"You need to hold the item in your hand "); return false;}
+						} else {player.sendMessage(ChatColor.RED+"You need to hold the item in your hand or type the 'id:meta'"); return false;}
 					//add the banned items
 					
 					
@@ -262,11 +262,11 @@ public class Main extends JavaPlugin implements Listener{
 						if(args.length==2)
 						if (args[1].equals("remove"))
 						{
-							if(player.getItemInHand() != null)
+							if(player.getItemInHand() != null && player.getItemInHand().getTypeId()!=0)
 							{
-								String material = "" + player.getItemInHand().getType();gg
+								String itemid = "" + player.getItemInHand().getTypeId();
 								 String meta = "" + player.getItemInHand().getDurability();
-								 String item = (material+":" + meta);
+								 String item = (itemid+":" + meta);
 								
 							
 								if(Data.getConfigurationSection("Items").getKeys(false).contains(item))
